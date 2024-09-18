@@ -19,7 +19,7 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.jdbc.core.DataClassRowMapper;
 import org.springframework.jdbc.support.JdbcTransactionManager;
 
-import eu.cymo.common.person.Adult;
+import eu.cymo.batch.domain.Adult;
 
 @Configuration
 public class BatchConfiguration {

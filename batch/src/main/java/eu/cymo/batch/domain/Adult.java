@@ -1,4 +1,4 @@
-package eu.cymo.ingestion.domain;
+package eu.cymo.batch.domain;
 
 public record Adult(
 		String batchId,
