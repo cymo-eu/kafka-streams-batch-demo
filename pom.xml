@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>eu.cymo</groupId>
+    <artifactId>kafka-streams-batch-demo</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>common</module>
+        <module>ingestion</module>
+        <module>stream</module>
+        <module>batch</module>
+    </modules>
+
+    <properties>
+        <java.version>22</java.version>
+	    <maven.compiler.target>${java.version}</maven.compiler.target>
+	    <maven.compiler.source>${java.version}</maven.compiler.source>
+		<common.version>${project.version}</common.version>
+		<confluent.version>7.7.1</confluent.version>
+		<avro.version>1.12.0</avro.version>
+    </properties>
+
+	<repositories>
+		<repository>
+			<id>confluent</id>
+			<name>confluent</name>
+			<url>https://packages.confluent.io/maven/</url>
+		</repository>
+	</repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>eu.cymo</groupId>
+                <artifactId>common</artifactId>
+                <version>${common.version}</version>
+            </dependency>
+			<dependency>
+				<groupId>io.confluent</groupId>
+				<artifactId>kafka-streams-avro-serde</artifactId>
+				<version>${confluent.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.avro</groupId>
+				<artifactId>avro</artifactId>
+				<version>${avro.version}</version>
+			</dependency>
+        </dependencies>
+    </dependencyManagement>
+    
+	<build>
+	    <pluginManagement>
+	        <plugins>
+	            <plugin>
+					<groupId>org.apache.avro</groupId>
+					<artifactId>avro-maven-plugin</artifactId>
+					<version>${avro.version}</version>
+	            </plugin>
+	        </plugins>
+	    </pluginManagement>
+	</build>
+	
+</project>

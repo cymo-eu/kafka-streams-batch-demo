@@ -1,0 +1,26 @@
+spring:
+  batch:
+    job:
+      enabled: false # disable jobs on startup; triggered by kafka
+      
+  kafka:
+    bootstrap-servers: localhost:19092
+    consumer:
+      group-id: batch-consumer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      auto-offset-reset: earliest
+      properties:
+        schema.registry.url: http://localhost:18081
+        specific.avro.reader: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5431/batch
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  
+  flyway:
+    enabled: true
+    
+server:
+  port: 8086

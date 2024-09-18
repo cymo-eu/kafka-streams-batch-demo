@@ -1,0 +1,23 @@
+@namespace("eu.cymo.common.person")
+protocol Event {
+
+	record PersonParsed {
+		string batchId;
+		string firstName;
+		string lastName;
+		date birthDate;
+		string address;
+	}
+	
+	record PersonFileParsed {
+		string batchId;
+	}
+
+	record Adult {
+		string batchId;
+		string firstName;
+		string lastName;
+		string address;
+	}
+
+}
